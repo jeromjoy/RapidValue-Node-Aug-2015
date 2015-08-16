@@ -12,6 +12,7 @@ try {
 }
 */
 
+/*
 try {
     fs.readFile("test1.txt", {encoding : "utf8"}, function(err, contents){
         console.log(contents);
@@ -21,4 +22,15 @@ try {
 } finally {
     console.log("done");
 }
+*/
+
+
+    fs.readFile("test1.txt", {encoding : "utf8"}, function(err, contents){
+        if (err){
+            console.log(err);
+            return;
+        }
+        console.log(contents);
+    });
+
 
