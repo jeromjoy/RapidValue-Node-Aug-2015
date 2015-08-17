@@ -21,24 +21,20 @@ var server = net.createServer(function(connection){
         type : "watching",
         filename : file
     };
-    //connection.write(JSON.stringify(output) + "\n");
-    connection.write(JSON.stringify(output));
+    connection.write(JSON.stringify(output) + "\n");
     fs.watchFile(file, function(){
         var output = {
             type : "change",
             filename : file,
             timestamp : new Date()
         }
-
-        //var outputAsString = JSON.stringify(output)  + "\n";
-        var outputAsString = JSON.stringify(output);
-        connection.write(outputAsString);
-       /*var output1 = outputAsString.substr(0,20);
-        var output2 = outputAsString.substr(20);
+        var outputAsString = JSON.stringify(output) + '\n';
+        var output1 = outputAsString.substr(0,20);
         connection.write(output1);
+        var output2 = outputAsString.substr(20);
         setTimeout(function(){
             connection.write(output2);
-        },3000);*/
+        },3000);
     });
 });
 
