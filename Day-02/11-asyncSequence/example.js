@@ -27,7 +27,28 @@ function f4(next){
     }, 3000)
 }
 
+var fns = [f1, f3, f2, f4]
 
+function run(fns){
+    var first = fns[0],
+        remaining = fns.slice(1);
+    var next = function(){
+        run(remaining);
+    };
+    if (first)
+        first(next);
+}
+
+/*
+f1(function(){
+    f2(function(){
+        f3(function(){
+            f4(function(){})
+        });
+    });
+});
+*/
+run(fns);
 
 
 
