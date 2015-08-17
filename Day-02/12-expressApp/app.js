@@ -28,15 +28,15 @@ app.use(session({
     secret : 'myapp'
 }));
 */
-app.use(session);
+//app.use(session);
 
-app.use(function(req, res, next){
+/*app.use(function(req, res, next){
     if (!req.session.reqCount)
         req.session.reqCount = 0;
     ++req.session.reqCount;
     console.log("req count = ", req.session.reqCount);
     next();
-});
+});*/
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);

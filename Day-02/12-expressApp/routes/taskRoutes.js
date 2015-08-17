@@ -7,6 +7,9 @@ var taskList = [
     {id : 3, name : "Gobble food", isCompleted : false}
 ];
 
+router.get('/api', function(req, res, next){
+    res.json(taskList);
+})
 
 router.get('/', function(req, res, next) {
   res.render('tasks/index', {list : taskList});
